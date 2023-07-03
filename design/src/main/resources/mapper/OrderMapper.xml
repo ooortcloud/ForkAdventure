@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.capstone.design.dao.OrderMapper">	<!-- mapper 인터페이스가 위치하는 경로. XML Mapper 의 SQL 쿼리 문과 Mapper 인터페이스의 메서드를 매핑하기 위해 지정하는 속성이다. -->
+    <!-- Create -->
+    <insert id="setOrderedMenu" parameterType="com.capstone.design.dto.OrderDTOCustom">
+        INSERT INTO orderTbl(foodName, numberOfFood)
+        VALUES (#{foodName}, #{numberOfFood})
+    </insert>
+
+    <!-- Read -->
+    <select id="getAllOrderedMenu" resultType="com.capstone.design.dto.OrderDTO">
+        SELECT *
+        FROM orderTbl
+    </select>
+
+
+    <!-- Update -->
+
+
+    <!-- Delete -->
+
+</mapper>

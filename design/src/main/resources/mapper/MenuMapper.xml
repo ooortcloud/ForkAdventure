@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.capstone.design.dao.MenuMapper">	<!-- mapper 인터페이스가 위치하는 경로. XML Mapper 의 SQL 쿼리 문과 Mapper 인터페이스의 메서드를 매핑하기 위해 지정하는 속성이다. -->
+    <!-- Create -->
+    <insert id="addMenuList" parameterType="com.capstone.design.dto.MenuDTO">
+        INSERT INTO menuTbl(foodName, price)
+        VALUES (#{foodName}, #{price})  <!-- MyBatis가 알아서 파싱해줌 -->
+    </insert>
+
+    <insert id="setOrderedMenu" parameterType="com.capstone.design.dto.OrderDTO">
+        INSERT INTO orderTbl()
+        VALUES ()
+    </insert>
+
+    <!-- Read -->
+    <select id="getMenuList" resultType="com.capstone.design.dto.MenuDTOCustom">  <!-- id: mapper 인터페이스에서 선언한 메서드 이름과 같아야 한다. / resultType: VO 클래스가 위치하는 경로 -->
+        SELECT id, foodName, price
+        FROM menuTbl	<!-- SQL문 작성, DB 이름 말고 테이블 이름 넣어야 함.-->
+    </select>
+
+<!--    <select id="getUserById" parameterType="Integer" resultType="com.testMyBatis.demo.UserDTO">-->
+<!--        SELECT *-->
+<!--        FROM userTbl-->
+<!--        WHERE id = #{id}-->
+<!--    </select>-->
+
+<!--    <select id="getUserByUserName" parameterType="String" resultType="com.testMyBatis.demo.UserDTO">-->
+<!--        SELECT *-->
+<!--        FROM userTbl-->
+<!--        WHERE userName = #{userName}  &lt;!&ndash; `#{}`는 외부에서 파라미터를 받아서, 일치하는 변수 이름에 꽃아버림 &ndash;&gt;-->
+<!--    </select>-->
+
+    <!-- Update -->
+    <update id="updateMenu" parameterType="com.capstone.design.dto.MenuDTO">
+        UPDATE menuTbl
+        SET foodName = #{foodName},
+            price = #{price}
+        WHERE id = #{id}
+    </update>
+
+    <!-- Delete -->
+    <delete id="deleteByFoodName" parameterType="com.capstone.design.dto.MenuDTO">
+        DELETE
+        FROM menuTbl
+        WHERE foodName = #{foodName}
+    </delete>
+</mapper>

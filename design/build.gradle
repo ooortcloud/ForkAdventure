@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.9'
+	id 'org.springframework.boot' version '2.7.11'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
@@ -19,7 +19,8 @@ repositories {
 }
 
 dependencies {
-	// implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation 'org.hibernate:hibernate-core:6.1.7.Final'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -27,6 +28,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+//	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
 }
 
 tasks.named('test') {
